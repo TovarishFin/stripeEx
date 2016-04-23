@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <center><h1>Example Stripe Payment Gateway Integration</h2></center>
+        <h2>Charge for $199.99 Through Stripe API</h2>
+    </div>
+    <div class="col-sm-12">
+      <form>
+        <div class="form-group">
+          <label>CC Number</label>
+          <input class="form-control" ng-model="payment.number" type="text" placeholder="4111111111111111"/>
+        </div>
+        <div class="form-group">
+          <label>Expiry Month</label>
+          <input class="form-control" ng-model="payment.exp_month" type="text" placeholder="01"/>
+        </div>
+        <div class="form-group">
+          <label>Expiry Year</label>
+          <input class="form-control" ng-model="payment.exp_year" type="text" placeholder="17"/>
+        </div>
+        <div class="form-group">
+          <label>Verification Code</label>
+          <input class="form-control" ng-model="payment.cvc" type="text" placeholder="123"/>
+        </div>
+        <button class="btn btn-primary bt btn-block" ng-click="beginPayment()">Test Pay Now</button>
+      </form>
+    </div>
+    <div ng-show="response.status=='succeeded'" class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 bg-success">
+          <h2>Your test card has successfully been charged.
+            <br>
+            The details are the following:</h2>
+        </div>
+        <div class="col-sm-6">
+          <br>
+          <h3>Amount Charged: {{response.amount/100 | currency:$}}</h3>
+          <br>
+
+        </div>
+        <div class="col-sm-6">
+          <br>
+          <h3>Additional order details can go here...</h3>
+        </div>
+      </div>
+
+        <br>
+
+    </div>
+    <div ng-show=" paymentSent && response.status !== 'succeeded'" class="col-sm-12 bg-danger">
+      <h3>Something went wrong. oops...</h3>
+      <br>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+body{
+  background-color:grey;
+}
+.container{
+  margin-top:100px;
+  background-color:white;
+  border-radius:20px;
+  padding-bottom:20px;
+}
